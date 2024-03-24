@@ -7,7 +7,7 @@ function SportCard({ img, event, sport, name }: any) {
         <div className='container mx-auto px-4 py-8'>
             <div className="bg-white shadow-lg rounded overflow-hidden max-w-sm inset-x-1 p-2">
                 <div className=''>
-                    <Image src={img} width="auto" height="auto" alt='img' />
+                    <Image src={img} width={400} height={400} alt='img' />
                 </div>
                 <div className='p-2 text-sm font-semibold my-1'>{name}</div>
                 <div className=''>

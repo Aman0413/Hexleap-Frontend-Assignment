@@ -73,7 +73,7 @@ export default function Home() {
             <div className="h-[2px] w-full bg-[#2C9CF0]"></div>
           </div>
           <div className="flex justify-center items-center flex-col">
-            <div className="flex space-x-7">
+            <div className="flex flex-col sm:flex-row md:space-x-7 ">
               {data.map((item) => (
                 <SportCard
                   key={item.id}
@@ -97,8 +97,8 @@ export default function Home() {
       <div className="bg-gradient-to-r from-purple-50 via-purple-50 to-blue-50 h-full mt-28 p-4 rounded-md">
         <div>
           <div className="flex flex-col justify-center items-center space-y-3 my-4">
-            <h2 className="text-5xl font-bold">Collection Spotlight</h2>
-            <p className="text-center w-[80%] font-light">
+            <h2 className="text-5xl font-bold text-center ">Collection Spotlight</h2>
+            <p className="text-center w-full md:w-[80%] font-light">
               Discover extraordinary moments with our Spotlight Collection
               metatickets—exclusive access to premium events for an
               unforgettable experience. Grab yours today!
@@ -106,7 +106,7 @@ export default function Home() {
           </div>
         </div>
         <div className="bottom ">
-          <div className="flex">
+          <div className="flex flex-col md:flex-row">
             {data2.map((item) => (
               <SpotlightCard
                 key={item.id}

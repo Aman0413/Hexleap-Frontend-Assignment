@@ -7,7 +7,7 @@ function Card() {
         <div className='container mx-auto px-4 py-8'>
             <div className="bg-white shadow-lg rounded overflow-hidden max-w-sm inset-x-1 p-2">
                 <div className=' relative'>
-                    <Image src={img} width="auto" height="auto" alt='img' />
+                    <Image src={img} width={400} height={400} alt='img' />
                     <div className='bg-black w-10 text-center px-4 py-1 text-xs  absolute top-[1px] right-[1px]'>
                         <span className='text-white  font-bold text-center'>Ad</span>
                     </div>
