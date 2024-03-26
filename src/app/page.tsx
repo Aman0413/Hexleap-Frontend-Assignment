@@ -11,21 +11,23 @@ import { IoMoon } from "react-icons/io5";
 import { MdWbSunny } from "react-icons/md";
 import img4 from "../../public/Ticket_Mockup 3.png";
 import img5 from "../../public/unnamed 1.png";
-import { useState } from "react";
+import { use, useEffect, useState } from "react";
 
 export default function Home() {
 
   const [darkMode, setDarkMode] = useState(false);
 
   const handleCheckboxChange = () => {
-    if (darkMode) {
-      document.documentElement.classList.remove("dark");
-    } else {
-      document.documentElement.classList.add("dark");
-    }
     setDarkMode(!darkMode)
   }
 
+  useEffect(() => {
+    if (darkMode) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  }, [darkMode]);
 
 
   const data = [
@@ -119,7 +121,7 @@ export default function Home() {
         </div>
       </div >
 
-      <div className="bg-gradient-to-t from-gray-800 to-gray-900 dark:from-purple-50 dark:via-purple-50 dark:to-blue-50 h-full mt-28 p-4 rounded-md">
+      <div className="bg-gradient-to-t from-purple-50 via-purple-50 to-blue-50 dark:from-[#221A2C] dark:via-gray-800 dark:to-gray-900 h-full mt-28 p-4 rounded-md dark:text-white" >
         <div>
           <div className="flex flex-col justify-center items-center space-y-3 my-4">
             <h2 className="text-5xl font-bold text-center ">Collection Spotlight</h2>
