@@ -4,8 +4,8 @@ import Image from 'next/image'
 
 function Card() {
     return (
-        <div className='container mx-auto px-4 py-8'>
-            <div className="bg-white shadow-lg rounded overflow-hidden max-w-sm inset-x-1 p-2">
+        <div className='container mx-auto px-4 py-8  transition-all duration-700 ease-in-out hover:scale-105 '>
+            <div className="bg-white shadow-lg rounded overflow-hidden max-w-sm inset-x-1 p-2 dark:bg-[#3B3E47] dark:bg-opacity-70 dark:text-white">
                 <div className=' relative'>
                     <Image src={img} width={400} height={400} alt='img' />
                     <div className='bg-black w-10 text-center px-4 py-1 text-xs  absolute top-[1px] right-[1px]'>

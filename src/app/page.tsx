@@ -1,14 +1,33 @@
+'use client';
+
 import SportCard from "@/components/SportCard";
 import img1 from "../../public/277307281_10158751675643224_148609460173032344_n.png";
 import img2 from "../../public/370265821_812394460893172_8391088016650457893_n 1.png";
 import img3 from "../../public/395319316_1098948761258832_1320994362450036961_n 1.png";
 import Card from "@/components/Card";
 import SpotlightCard from "@/components/SpotlightCard";
-
+import { FaAngleRight, FaAngleLeft } from "react-icons/fa6";
+import { IoMoon } from "react-icons/io5";
+import { MdWbSunny } from "react-icons/md";
 import img4 from "../../public/Ticket_Mockup 3.png";
 import img5 from "../../public/unnamed 1.png";
+import { useState } from "react";
 
 export default function Home() {
+
+  const [darkMode, setDarkMode] = useState(false);
+
+  const handleCheckboxChange = () => {
+    if (darkMode) {
+      document.documentElement.classList.remove("dark");
+    } else {
+      document.documentElement.classList.add("dark");
+    }
+    setDarkMode(!darkMode)
+  }
+
+
+
   const data = [
     {
       id: 1,
@@ -65,11 +84,17 @@ export default function Home() {
   ];
 
   return (
-    <div className="bg-[#F7F7F8] w-full h-full flex flex-col justify-center items-center py-10">
-      <div className="top w-[90%] flex flex-col">
-        <div className=" w-full p-4 flex flex-col items-start space-y-4 justify-center">
+    <div className="bg-[#F7F7F8] w-full h-full flex flex-col justify-center items-center py-10 dark:bg-[#292B32]  ">
+
+      <button className="border p-2 rounded-md flex justify-center items-center transition-all duration-500 ease-in-out active:scale-90" onClick={handleCheckboxChange}>
+        {
+          darkMode ? <IoMoon className="text-[#2C9CF0]" /> : <MdWbSunny className="text-[#2C9CF0]" />
+        }
+      </button>
+      <div className="top w-[90 %] flex flex-col">
+        < div className=" w-full p-4 flex flex-col items-start space-y-4 justify-center" >
           <div>
-            <p className="text-black inline-block font-bold">Sports</p>
+            <p className="dark:text-white text-black inline-block font-bold">Sports</p>
             <div className="h-[2px] w-full bg-[#2C9CF0]"></div>
           </div>
           <div className="flex justify-center items-center flex-col">
@@ -86,15 +111,15 @@ export default function Home() {
               <Card />
             </div>
           </div>
-        </div>
+        </ div>
         <div className="flex justify-center items-center ">
-          <button className="bg-[#2C9CF0] text-white text-xs px-6 py-3 rounded-sm">
+          <button className="bg-[#2C9CF0] text-white text-xs px-6 py-3 rounded-sm transition-all duration-500 ease-in-out active:scale-90">
             See More
           </button>
         </div>
-      </div>
+      </div >
 
-      <div className="bg-gradient-to-r from-purple-50 via-purple-50 to-blue-50 h-full mt-28 p-4 rounded-md">
+      <div className="bg-gradient-to-t from-gray-800 to-gray-900 dark:from-purple-50 dark:via-purple-50 dark:to-blue-50 h-full mt-28 p-4 rounded-md">
         <div>
           <div className="flex flex-col justify-center items-center space-y-3 my-4">
             <h2 className="text-5xl font-bold text-center ">Collection Spotlight</h2>
@@ -105,8 +130,11 @@ export default function Home() {
             </p>
           </div>
         </div>
-        <div className="bottom ">
-          <div className="flex flex-col md:flex-row">
+        <div className="bottom flex flex-col md:flex-row justify-center items-center md:space-x-24 md:mt-20 ">
+          <div className="hidden md:block">
+            <button className="px-4 py-5 rounded-sm border-2 border-[#2C9CF0] transition-all duration-500 ease-in-out active:scale-90"><FaAngleLeft className="text-xl text-[#2C9CF0] " /></button>
+          </div>
+          <div className="flex flex-col md:flex-row md:space-x-9 space-y-10 md:space-y-0  mt-10">
             {data2.map((item) => (
               <SpotlightCard
                 key={item.id}
@@ -117,8 +145,13 @@ export default function Home() {
               />
             ))}
           </div>
+
+          <div className="hidden md:block">
+            <button className="px-4 py-5 rounded-sm border-2 border-[#2C9CF0] transition-all duration-500 ease-in-out active:scale-90"><FaAngleRight className="text-xl text-[#2C9CF0]" /></button>
+          </div>
+
         </div>
       </div>
-    </div>
+    </div >
   );
 }
